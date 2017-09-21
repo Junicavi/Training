@@ -16,4 +16,9 @@ Ahora se debe crear un servidor PHP, hay diversas formas de realizarlo, pero en 
 
 En este punto si ingresamos a [nuestro servidor local](localhost:8080) veremos esto:
 
-![](https://gyazo.com/857c46c7fa85fb6ac31d262c57c07f44 "Screen Capture")
+![alt text](https://raw.githubusercontent.com/Junicavi/Training/master/ReadmeImages/Headers/1.png)
+
+Sin embargo aquí listaré las URL's que corresponden a las diferentes respuestas HTTP que queremos obtener.
+
+1. [Respuesta con Imagen `localhost:8080/hello`](localhost:8080/hello) (Deberías ver algo horrible)
+2. [Respuesta text/html `localhost:8080/hello2/Junicavi`](localhost:8080/hello/Junicavi) En este caso la última parte del enlace `Junicavi`puede cambiarse a cualquier palabra.

@@ -3,7 +3,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
-
+//Respuesta con Imagen
 $app = new \Slim\App;
 $app->get('/hello', function (Request $request, Response $response, $next) {
     $image = file_get_contents("Images/lel.jpeg");
@@ -11,16 +11,19 @@ $app->get('/hello', function (Request $request, Response $response, $next) {
     $response->write($image);
     return $response->withHeader('Content-Type',$mime);
 });
+//Respuesta text/html
 $app->get('/hello2/{name}', function (Request $request, Response $response, $next) {
     $name = $request->getAttribute('name');
     $response->getBody()->write("Hola $name");   
     return $response->withHeader('Content-Type','text/html');
 });
+//Respuesta JSON
 $app->get('/hello3', function (Request $request, Response $response, $next) {  
 	$arr = array('a' => 1 , 'b' => 2 );
 	echo json_encode($arr);
 	return $response -> withHeader('Content-Type','application/json');
 });
+//Respuesta Imagen Dinámica
 $app->get('/hello4', function (Request $request, Response $response, $next) {  
 	$md5 = md5(rand(0,999));
 	$pass = substr($md5, 10, 5);

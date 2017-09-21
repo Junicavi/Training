@@ -15,5 +15,5 @@ Ahora se debe crear un servidor PHP, hay diversas formas de realizarlo, pero en 
 `php -S localhost:8080`
 
 En este punto si ingresamos a [nuestro servidor local](localhost:8080) veremos esto:
-[Screen1]: https://gyazo.com/857c46c7fa85fb6ac31d262c57c07f44
-![alt text][Screen1]
+
+![](https://gyazo.com/857c46c7fa85fb6ac31d262c57c07f44 "Screen Capture")

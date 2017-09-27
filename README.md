@@ -40,4 +40,4 @@ Para analizar los `headers`de los ejemplos, se puede utilizar cualquier herramie
 2. En Postman debemos colocar nuestro URL, en la casilla qué dice `Enter request URL`, seleccionamos el tipo de `mètodo`que queremos usar para la petición, en este caso `GET`y oprimimos el botón `Send`.
     ![Alt Text](https://raw.githubusercontent.com/Junicavi/Training/master/ReadmeImages/Headers/4.gif)
 
-Siguiendo estos pasos, se pueden probar los ejemplos mencionados anteriormente.
+Siguiendo estos pasos, se pueden probar los ejemplos mencionados anteriormente, de igual forma podemos usar las mismas rutas, pero cambiando el tipo de método de `GET`a otros como: `POST`,`PUT`o `DELETE`; obtendremos diferentes respuestas.

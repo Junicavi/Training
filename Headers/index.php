@@ -114,5 +114,40 @@ $app->put('/hello4/{name}', function (Request $request, Response $response, $nex
     $response->write($image);
     return $response->withHeader('Content-Type',$mime);
 });
+// DELETE
+$app->delete('/hello', function (Request $request, Response $response, $next) {
+    $image = file_get_contents("Images/delete.jpeg");
+    $mime = mime_content_type ("Images/delete.jpeg");
+    $response->write($image);
+    return $response->withHeader('Content-Type',$mime);
+});
+//Respuesta text/html
+$app->delete('/hello2/{name}', function (Request $request, Response $response) {
+    $name = $request->getAttribute('name');
+    $response->getBody()->write("Hola $name, estás usando el método DELETE");   
+    return $response->withHeader('Content-Type','text/html');
+});
+//Respuesta JSON
+$app->delete('/hello3', function (Request $request, Response $response, $next) {  
+	$arr = array('a' => 1000 , 'b' => 2000 , 'c' => 3000, 'd' => 4000, 'e' => 5000);
+	echo json_encode($arr);
+	return $response -> withHeader('Content-Type','application/json');
+});
+//Respuesta Imagen Dinámica
+$app->delete('/hello4/{name}', function (Request $request, Response $response, $next) {  
+	$name = $request->getAttribute('name');
+	$my_img = imagecreate( 200, 80 );
+	$background = imagecolorallocate( $my_img, 232, 232, 62 );
+	$text_colour = imagecolorallocate( $my_img, 255, 255, 0 );
+	$line_colour = imagecolorallocate( $my_img, 128, 255, 0 );
+	imagestring( $my_img, 4, 30, 25, "$name", $text_colour );
+	imagesetthickness ( $my_img, 5 );
+	imageline( $my_img, 30, 45, 165, 45, $line_colour );
+	imagepng( $my_img , "Images/imagen.png");
+    $image = file_get_contents("Images/imagen.png");
+    $mime = mime_content_type ("Images/imagen.png");
+    $response->write($image);
+    return $response->withHeader('Content-Type',$mime);
+});
 
 $app->run();

@@ -24,25 +24,7 @@ $app->get('/hello3', function (Request $request, Response $response, $next) {
 	return $response -> withHeader('Content-Type','application/json');
 });
 //Respuesta Imagen Dinámica
-$app->get('/hello4', function (Request $request, Response $response, $next) {  
-	$md5 = md5(rand(0,999));
-	$pass = substr($md5, 10, 5);
-	$width = 100;
-	$height = 20;
-	$image = ImageCreate($width,$height);
-	$white = imagecolorallocate($image, 255, 255, 255);
-	$black = imagecolorallocate($image, 0, 0, 0);
-	$grey = imagecolorallocate($image, 204, 204, 204);
-	imagefill($image, 0, 0, $black);
-	imagestring($image, 3, 30, 3, $pass, $white);
-    ImageRectangle($image,0,0,$width-1,$height-1,$grey); 
-    imageline($image, 0, $height/2, $width, $height/2, $grey); 
-    imageline($image, $width/2, 0, $width/2, $height, $grey);
-    header("Content-Type: image/jpeg");
-    imagejpeg($image);
-    imagedestroy($image);	
-});
-$app->get('/hello5/{name}', function (Request $request, Response $response, $next) {  
+$app->get('/hello4/{name}', function (Request $request, Response $response, $next) {  
 	$name = $request->getAttribute('name');
 	$my_img = imagecreate( 200, 80 );
 	$background = imagecolorallocate( $my_img, 0, 0, 255 );

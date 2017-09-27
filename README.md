@@ -20,10 +20,10 @@ En este punto si ingresamos a [nuestro servidor local](localhost:8080) veremos e
 
 Sin embargo aquí listaré las URL's que corresponden a las diferentes respuestas HTTP que queremos obtener.
 
-1. Respuesta con Imagen `localhost:8080/hello` (Deberías ver algo horrible). [Enlace](localhost:8080/hello)
-2. Respuesta text/html `localhost:8080/hello2/Junicavi`En este caso la última parte del enlace `Junicavi`puede cambiarse a cualquier palabra. [Enlace](localhost:8080/hello/Junicavi)
-3. Respuesta JSON `localhost:8080/hello3` [Enlace](localhost:8080/hello3)
-4. Respuesta con Imagen Dinámica `localhost:8080/hello4/Junicavi`En este caso la última parte del enlace `Junicavi`se puede cambiar a cualquier palabra, esta será la palabra que se genere en la imagen. [Enlace](localhost:8080/hello4/Junicavi)
+1. Respuesta con Imagen `localhost:8080/hello` (Deberías ver algo horrible).
+2. Respuesta text/html `localhost:8080/hello2/Junicavi`En este caso la última parte del enlace `Junicavi`puede cambiarse a cualquier palabra.
+3. Respuesta JSON `localhost:8080/hello3`
+4. Respuesta con Imagen Dinámica `localhost:8080/hello4/Junicavi`En este caso la última parte del enlace `Junicavi`se puede cambiar a cualquier palabra, esta será la palabra que se genere en la imagen.
 
 Para analizar los `headers`de los ejemplos, se puede utilizar cualquier herramienta similar a [Postman](https://www.getpostman.com/) o con el inspector del navegador.
 

@@ -4,7 +4,12 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
 //Respuesta con Imagen
-$app = new \Slim\App;
+$app = new \Slim\App([
+	'settings' => [
+		'displayErrorDetails' => true
+	]
+]);
+//$app->config('debug', true);
 $app->get('/hello', function (Request $request, Response $response, $next) {
     $image = file_get_contents("Images/lel.jpeg");
     $mime = mime_content_type ("Images/lel.jpeg");
@@ -40,7 +45,6 @@ $app->get('/hello4/{name}', function (Request $request, Response $response, $nex
     return $response->withHeader('Content-Type',$mime);
 });
 // POST //
-$app = new \Slim\App;
 $app->post('/hello', function (Request $request, Response $response, $next) {
     $image = file_get_contents("Images/Earth.jpeg");
     $mime = mime_content_type ("Images/Earth.jpeg");
@@ -75,6 +79,40 @@ $app->post('/hello4/{name}', function (Request $request, Response $response, $ne
     $response->write($image);
     return $response->withHeader('Content-Type',$mime);
 });
+// PUT //
+$app->put('/hello', function (Request $request, Response $response, $next) {
+    $image = file_get_contents("Images/2.jpeg");
+    $mime = mime_content_type ("Images/2.jpeg");
+    $response->write($image);
+    return $response->withHeader('Content-Type',$mime);
+});
+//Respuesta text/html
+$app->put('/hello2/{name}', function (Request $request, Response $response) {
+    $name = $request->getAttribute('name');
+    $response->getBody()->write("Hola $name, estás usando el método PUT");   
+    return $response->withHeader('Content-Type','text/html');
+});
+//Respuesta JSON
+$app->put('/hello3', function (Request $request, Response $response, $next) {  
+	$arr = array('a' => 100 , 'b' => 200 , 'c' => 300, 'd' => 400, 'e' => 500);
+	echo json_encode($arr);
+	return $response -> withHeader('Content-Type','application/json');
+});
+//Respuesta Imagen Dinámica
+$app->put('/hello4/{name}', function (Request $request, Response $response, $next) {  
+	$name = $request->getAttribute('name');
+	$my_img = imagecreate( 200, 80 );
+	$background = imagecolorallocate( $my_img, 246, 216, 216 );
+	$text_colour = imagecolorallocate( $my_img, 255, 255, 0 );
+	$line_colour = imagecolorallocate( $my_img, 128, 255, 0 );
+	imagestring( $my_img, 4, 30, 25, "$name", $text_colour );
+	imagesetthickness ( $my_img, 5 );
+	imageline( $my_img, 30, 45, 165, 45, $line_colour );
+	imagepng( $my_img , "Images/imagen.png");
+    $image = file_get_contents("Images/imagen.png");
+    $mime = mime_content_type ("Images/imagen.png");
+    $response->write($image);
+    return $response->withHeader('Content-Type',$mime);
+});
 
 $app->run();
-

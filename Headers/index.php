@@ -3,18 +3,30 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
-//Respuesta con Imagen
+
+
 $app = new \Slim\App([
 	'settings' => [
 		'displayErrorDetails' => true
 	]
 ]);
-//$app->config('debug', true);
 $app->get('/hello', function (Request $request, Response $response, $next) {
     $image = file_get_contents("Images/lel.jpeg");
     $mime = mime_content_type ("Images/lel.jpeg");
     $response->write($image);
     return $response->withHeader('Content-Type',$mime);
+});
+//RESPUESTA CON TWIG
+$app->get('/twig', function (Request $request, Response $response, $next) {
+	$loader = new Twig_Loader_Filesystem('views');
+	$twig = new Twig_Environment($loader);
+	$ejemplo = $twig->render('hola.html',array(
+
+		'name' => 'Michael',
+		'age'=> 52
+
+	));
+	$response->getBody()->write($ejemplo);   
 });
 //Respuesta text/html
 $app->get('/hello2/{name}', function (Request $request, Response $response, $next) {

@@ -1,0 +1,143 @@
+body{
+  display: flex;
+  max-width: 1920px;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  flex-direction: column;
+}
+@font-face {
+  font-family: myRainFont;
+  src: url(/Users/brimende1/Documents/Develop/link-tutorial/fonts/rain.otf);
+}
+.mac-img {
+  position: absolute;
+  margin: 227px 0px 0px -440px;
+  z-index: 1;
+}
+.mac-img img {
+  width: 1343px;
+}
+.side-up {
+  display: flex;
+  height: 850px;
+  background-color: #D54736;
+}
+
+/* NAVBAR */
+.side-up-menu {
+  text-align: center;
+  padding: 50px 0px 0px 200px;
+  width: 50%;
+  height: 26%;
+  list-style: none;
+
+}
+.side-up-menu a {
+  text-decoration: none;
+  color: #E8A29B;
+
+}
+.side-up-menu a:hover{
+  color: #fff;
+  text-decoration: underline;
+}
+.side-up-menu ul {
+  display: flex;
+  max-height: fit-content;
+  list-style: none;
+}
+.side-up-menu li {
+  width: 100px;
+}
+
+/* TITLE*/
+.side-up-title {
+  width: 50%;
+  height: 26%;
+  display: flex;
+  padding: 50px 0px 0px 200px;
+  color: #fff;
+
+}
+
+/* HERO */
+.hero {
+  position: absolute;
+  align-self: center;
+  width: 100%;
+  height: 50%;
+  top: 260px;
+  text-align: center;
+}
+
+.hero h1.craft{
+  font-size: 14em;
+  margin: 0 auto;
+  color: #fff;
+  font-family: myRainFont;
+}
+.hero p.hero-text {
+  width: 460px;
+  margin-left: 1091px;
+  font-size: 1.5em;
+  line-height: 45px;
+  color: #fff;
+}
+/* FIRST CONTENT */
+.first-content {
+  background-color: #fff;
+  height: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 380px 0px 0px 0px;
+}
+.first-content-title {
+  position: absolute;
+  margin: -160px 0px 0px 0px;
+}
+.first-content-divs {
+  padding: 0px 0px 20px 0px;
+}
+.first-content-headers {
+  margin-bottom: 3px;
+}
+.first-content-paragraphs {
+  margin-top: -2px;
+  line-height: 25px;
+}
+.first-content-center, .first-content-right {
+  width: 215px;
+}
+.first-content-center-img {
+  position: absolute;
+  margin: 0px 15px 10px -105px;
+}
+/* SECOND CONTENT */
+.second-content {
+  background-color: #000;
+  display: flex;
+  padding: 170px;
+  justify-content: center;
+}
+.second-content-divs {
+  width: 340px;
+  padding: 0px 68px 0px 85px;
+}
+.second-content h2 {
+  color: #fff
+}
+.second-content p {
+  color: #999999;
+  font-size: 1.1em;
+}
+.second-content a {
+  color: #F7F7F7
+}
+p.second-content-paragraphs {
+    padding-bottom: 21px;
+}
+/* FOOTER */
+.footer {
+  background-color: pink;
+}

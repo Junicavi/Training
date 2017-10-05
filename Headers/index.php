@@ -19,7 +19,7 @@ $app->get('/hello', function (Request $request, Response $response, $next) {
 //RESPUESTA CON TWIG
 $app->get('/twig', function (Request $request, Response $response, $next) {
 	$loader = new Twig_Loader_Filesystem('views');
-	$twig = new Twig_Environment($loader);
+		$twig = new Twig_Environment($loader);
 	$ejemplo = $twig->render('hola.html',array(
 
 		'name' => 'Michael',
